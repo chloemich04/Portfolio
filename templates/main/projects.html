@@ -1,62 +1,7 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Projects - Portfolio</title>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <script src="https://kit.fontawesome.com/3dff7dc02d.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Chloe' Robinson</h1>
-      <nav>
-        <a href="{% url 'index' %}">About</a> |
-        <a href="{% url 'projects' %}">Projects</a> |
-        <a href="{% url 'contact' %}">Contact</a>
-      </nav>
-    </header>
-    <main>
-      <section id="projects" class="section">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-          <!-- Project Card 1 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="/static/images/project1-placeholder.jpg" alt="Project 1">
-            </div>
-            <div class="project-content">
-              <h3>Anime Tracker</h3>
-              <p class="project-tagline">Full-stack MERN app for anime fans</p>
-              
-              <div class="tech-stack">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Django</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">SQLite</span>
-              </div>
-              
-              <p class="project-description">
-                A web application that helps users track their favorite anime series, discover new ones, 
-                talk to others about anime, create forms/polls and stay updated on anime news.
-                Implemented caching to improve load times by 40%.
-              </p>
-              
-              <div class="project-links">
-                <a href="https://gitlab.com/ull-gitlab/sp25-team-projects/sp25-team-011/tor-anime" class="btn btn-github">
-                  <i class="fab fa-github"></i> View Code
-                </a>
-                <a href="#" class="btn btn-demo">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Add more project cards here -->
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+﻿{% extends 'main/base.html' %}
+{% block title %}Projects | Chloe' Robinson{% endblock %}
+{% block content %}
+<section class="page-heading"><p class="eyebrow">The things I've been building</p><h1>From an idea<br>to <em>something real.</em></h1><p class="intro">A selection of projects exploring web development, community, and the connections between good code and useful experiences.</p></section>
+<section class="section" aria-label="Project collection">{% include 'main/project_cards.html' %}</section>
+<section class="connect-banner"><div><p class="eyebrow">More to explore</p><h2>Follow along as I build.</h2></div><a class="button" href="https://github.com/chloemich04">Visit my GitHub ↗</a></section>
+{% endblock %}
