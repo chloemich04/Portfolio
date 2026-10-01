@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Research | Chloe' Robinson{% endblock %}
+{% block content %}
+<section class="page-heading">
+  <p class="eyebrow">Cybersecurity / Research</p>
+  <h1>Understanding scams.<br><em>Recognizing patterns.</em></h1>
+  <p class="intro">I study blackmail scams and ransomware to understand how threat messages use fear, urgency, and trust. I began this work as a Ronald E. McNair Scholar with my mentor, Dr. Bhupendra Acharya, at the APRIORI Center. I continue working with him and our research team during my graduate studies.</p>
+  <div class="actions"><a class="button" href="#original-study">Explore the study &darr;</a><a class="text-link" href="#ongoing">Current research &darr;</a></div>
+</section>
+<section class="section about-grid" id="original-study" aria-labelledby="study-title">
+  <div>
+    <p class="eyebrow">01 / Original study · 2025</p>
+    <h2 id="study-title">Exploration of Blackmail Scam and Creation of Scammer's Codebook</h2>
+    <p>Chloe' Robinson<br>Mentor: Dr. Bhupendra Acharya<br>University of Louisiana at Lafayette<br>Ronald E. McNair Scholar Program</p>
+    <p><strong>APRIORI Center</strong><br>Applied Research in Internet Cybercrime, Online Resilience &amp; Intelligence Center</p>
+  </div>
+  <div>
+    <p class="large-copy">Turning scattered reports and ransom notes into a structured way to recognize coercion.</p>
+    <p>I have been part of the APRIORI Center since this project began. The lab is led by my mentor, Dr. Bhupendra Acharya, with whom I continue to work. I began the project as an individual researcher under his mentorship. I developed the data collection, cleaning, analysis, and visualization work behind the study.</p>
+    <p>The codebook framework organizes recurring manipulation tactics, language patterns, and behavioral indicators. Its purpose is to support awareness and further research into how blackmail threats are communicated.</p>
+    <h3>Questions that guided the work</h3>
+    <ul>
+      <li>What motivations and pressures may shape blackmail scamming?</li>
+      <li>Which communication strategies, threats, and persuasive tactics recur?</li>
+      <li>Which vulnerabilities do these messages attempt to exploit?</li>
+    </ul>
+  </div>
+</section>
+<section class="section" aria-labelledby="methods-title">
+  <p class="eyebrow">02 / Methods</p><h2 id="methods-title">From source material to patterns.</h2>
+  <div class="skills-grid">
+    <div><h3>Collect</h3><p>Gather public reports from ChainAbuse and Reddit alongside ransom notes from Ransomware.live.</p></div>
+    <div><h3>Clean</h3><p>Filter duplicate, incomplete, and irrelevant entries; remove HTML markup and boilerplate text.</p></div>
+    <div><h3>Analyze</h3><p>Examine threat language, emotional framing, payment demands, and urgency using thematic analysis and keyword tracking.</p></div>
+    <div><h3>Organize</h3><p>Bring recurring tactics and linguistic indicators into a codebook framework for comparison.</p></div>
+  </div>
+  <a class="text-link" href="https://github.com/chloemich04/Data-Analysis">Explore the analysis code &nearr;</a>
+</section>
+<section class="section about-grid" aria-labelledby="observations-title">
+  <div><p class="eyebrow">03 / Observations from the original study</p><h2 id="observations-title">Different messages.<br>Recurring pressure.</h2>
+    <p>The reviewed material showed recurring exposure threats, payment urgency, and claims of control. Victim accounts emphasized fear and uncertainty, while ransomware notes often used a more formal structure with payment instructions and escalation warnings.</p>
+    <p>These are observations from the studied sources. Public reports are selective, and messages alone cannot establish a scammer's internal motivations or a definitive victim profile.</p>
+  </div>
+  <figure class="research-figure">
+    <a href="{% static 'images/projects/data-analysis.png' %}"><img src="{% static 'images/projects/data-analysis.png' %}" alt="Chart comparing cumulative unique theme keywords across ransomware notes, ChainAbuse reports, and Reddit blackmail data." width="745" height="426" loading="lazy"></a>
+    <figcaption>Original keyword saturation chart. A plateau means fewer new terms from the selected keyword list appeared; it does not establish that every scam tactic has been captured. <a href="{% static 'images/projects/data-analysis.png' %}">View full chart &nearr;</a></figcaption>
+  </figure>
+</section>
+<section class="section" id="ongoing" aria-labelledby="ongoing-title">
+  <p class="eyebrow">04 / Ongoing team research</p><h2 id="ongoing-title">Exploring the connections.</h2>
+  <p class="research-summary">I am continuing this work with a team at the APRIORI Center during my graduate studies, under the continued mentorship of Dr. Bhupendra Acharya. We are investigating new angles and connections to blackmail scamming, building on the original research.</p>
+  <div class="about-grid research-current">
+    <div>
+      <h3>A working map of research directions</h3>
+      <p>The current visual connects blackmail scamming with sextortion, romance scams, ransomware, impersonation scams, and investment fraud often called pig-butchering.</p>
+      <p>We are using these connections to frame further investigation. The map represents work in progress, rather than a set of established findings or a claim that these categories are interchangeable.</p>
+      <a class="text-link" href="{% static 'research/blackmail-connections.pdf' %}">Open the connections map (PDF) &nearr;</a>
+    </div>
+    <figure class="research-figure">
+      <a href="{% static 'research/blackmail-connections.png' %}"><img src="{% static 'research/blackmail-connections.png' %}" alt="Working research map linking blackmail scamming to sextortion, romance scams, ransomware, investment fraud, and impersonation scams." loading="lazy"></a>
+      <figcaption>Current connections map supplied for the ongoing team research. Click to view the full-size visual.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="section" aria-labelledby="materials-title">
+  <p class="eyebrow">05 / Read the work</p><h2 id="materials-title">Research materials.</h2>
+  <div class="contact-grid">
+    <a class="contact-card" href="{% static 'research/blackmail-scamming-paper-2025.pdf' %}"><span class="eyebrow">Original study / PDF · 7 pages</span><h3>Read the research paper &nearr;</h3><p>Methods, observations, discussion, and limitations from the original project.</p></a>
+    <a class="contact-card" href="{% static 'research/scammer-codebook-presentation-2025.pptx' %}" download><span class="eyebrow">2025 presentation / PowerPoint · 15 slides</span><h3>Download the presentation &darr;</h3><p>An overview of the research questions, workflow, and findings.</p></a>
+  </div>
+</section>
+<section class="connect-banner"><div><p class="eyebrow">Let's talk research</p><h2>Interested in this work?</h2></div><a class="button" href="{% url 'contact' %}">Get in touch &nearr;</a></section>
+{% endblock %}

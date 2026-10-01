@@ -84,3 +84,11 @@ after capture; the portfolio serves only the saved PNG files.
   accessed through the existing Git credential setup. The local preview used a
   fresh temporary SQLite database and a logged-out session. Repository access
   may require GitLab sign-in; the saved screenshot is served locally.
+
+## Research page
+
+`/research/` presents the original 2025 study with mentor Dr. Bhupendra Acharya
+and distinguishes it from ongoing graduate team research. Edit the narrative in
+`templates/main/research.html`. Original paper, presentation, and connections map
+are stored in `static/research/`; the map preview is rendered from the supplied PDF.
+The page links to downloadable copies, so these files will be public when deployed.

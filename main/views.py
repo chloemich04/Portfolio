@@ -14,3 +14,7 @@ def projects(request):
 
 def contact(request):
     return render(request, "main/contact.html", {})
+
+
+def research(request):
+    return render(request, "main/research.html", {})
