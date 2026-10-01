@@ -526,3 +526,93 @@ nav a {
 .calculator-art { background: #f0e8cd; color: #5d5025; }
 .project-art { min-height: 275px; }
 .project-content h3 { overflow-wrap: anywhere; }
+
+/* Real project screenshots link to their full-resolution local image. */
+.project-preview {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f0f0f0;
+  text-decoration: none;
+}
+.project-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 36 / 25;
+  object-fit: contain;
+}
+.project-preview-cover img {
+  object-fit: cover;
+  object-position: center top;
+}
+.preview-caption {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--paper);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+}
+.project-preview:hover { border-color: var(--green); }
+
+/* Motion stays restrained, and only runs when the visitor allows it. */
+@media (prefers-reduced-motion: no-preference) {
+  .button, .contact-card, .project-preview, .wordmark {
+    transition: transform 240ms ease, box-shadow 240ms ease,
+      background-color 240ms ease, border-color 240ms ease;
+  }
+  .button span, nav a span {
+    display: inline-block;
+    transition: transform 240ms ease;
+  }
+  nav a, .text-link {
+    transition: color 200ms ease;
+  }
+  nav a {
+    position: relative;
+  }
+  nav a:not([aria-current])::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 240ms ease;
+  }
+  nav a:focus-visible::after { transform: scaleX(1); }
+  .location-stamp {
+    animation: stamp-settle 1200ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .status-dot {
+    animation: hello-pulse 1400ms ease-out 3;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover { transform: translateY(-3px); box-shadow: 0 8px 18px #285d4326; }
+    .button:hover span, nav a:hover span { transform: translate(2px, -2px); }
+    .project-preview:hover, .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px #242c2812;
+    }
+    .wordmark:hover { transform: rotate(-6deg); }
+    nav a:hover::after { transform: scaleX(1); }
+    .portrait-frame {
+      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .portrait-composition:hover .portrait-frame { transform: rotate(0deg); }
+  }
+}
+@keyframes stamp-settle {
+  from { opacity: 0; transform: translateY(12px) rotate(2deg); }
+  to { opacity: 1; transform: translateY(0) rotate(-4deg); }
+}
+@keyframes hello-pulse {
+  from { box-shadow: 0 0 0 0 #285d4333; }
+  to { box-shadow: 0 0 0 9px #285d4300; }
+}

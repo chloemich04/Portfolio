@@ -1,11 +1,19 @@
-﻿<div class="projects-grid">
+{% load static %}
+<div class="projects-grid">
   {% for project in projects %}
     <article class="project-card">
+      {% if project.image %}
+        <a class="project-preview{% if project.image_fit == 'cover' %} project-preview-cover{% endif %}" href="{% static project.image %}" aria-label="View full image of {{ project.title }}">
+          <img src="{% static project.image %}" alt="{{ project.image_alt }}" width="{{ project.image_width|default:1440 }}" height="{{ project.image_height|default:1000 }}" loading="lazy" decoding="async">
+          <span class="preview-caption">{% if project.image_caption %}{{ project.image_caption }} &middot; {% endif %}View full image <span aria-hidden="true">&#8599;</span></span>
+        </a>
+      {% else %}
       <div class="project-art {{ project.theme }}-art" aria-hidden="true">
         <span class="art-kicker">{{ project.label }}</span>
         <div class="project-headline">{{ project.headline }}</div>
         <div class="art-bottom"><span>{{ project.caption }}</span><span>{{ forloop.counter|stringformat:"02d" }} ↗</span></div>
       </div>
+      {% endif %}
       <div class="project-content">
         <p class="eyebrow">{{ project.category }}</p>
         <h3>{{ project.title }}</h3>
