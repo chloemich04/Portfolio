@@ -20,6 +20,8 @@
       return;
     }
     observer = new IntersectionObserver(entries => {
+      // A queued observer callback may arrive after a preference change.
+      if (preference.matches) return;
       let order = 0;
       entries.forEach(entry => {
         if (!entry.isIntersecting || seen.has(entry.target)) return;

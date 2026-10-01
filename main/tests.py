@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class PortfolioPageTests(SimpleTestCase):
     def test_pages_render_with_navigation_and_contact_links(self):
-        for name in ("index", "projects", "contact"):
+        for name in ("index", "projects", "research", "contact"):
             with self.subTest(page=name):
                 response = self.client.get(reverse(name))
                 self.assertEqual(response.status_code, 200)
@@ -21,9 +21,13 @@ class PortfolioPageTests(SimpleTestCase):
     def test_project_collection_is_shared(self):
         for name in ("index", "projects"):
             response = self.client.get(reverse(name))
+            self.assertContains(response, "https://github.com/chloemich04/Atlas")
             self.assertContains(response, "Anime Tracker")
-            self.assertContains(response, "https://github.com/chloemich04/Portfolio")
-            self.assertContains(response, "tor-anime")
+            self.assertNotContains(response, "My contribution")
+        collection = self.client.get(reverse("projects"))
+        self.assertContains(collection, "Anime Tracker")
+        self.assertContains(collection, "tor-anime")
+        self.assertContains(collection, "An independently built Python research project")
 
     def test_contact_uses_real_contact_channels(self):
         response = self.client.get(reverse("contact"))
@@ -31,3 +35,13 @@ class PortfolioPageTests(SimpleTestCase):
         self.assertContains(response, 'https://www.linkedin.com/in/chloe-robinson-a90b3632a/')
         self.assertContains(response, 'https://github.com/chloemich04')
         self.assertNotContains(response, '<form')
+
+    def test_research_materials_and_study_status(self):
+        from django.contrib.staticfiles import finders
+        response = self.client.get(reverse("research"))
+        self.assertContains(response, "Original study")
+        self.assertContains(response, "Ongoing team research")
+        self.assertContains(response, "Dr. Bhupendra Acharya")
+        for name in ("blackmail-scamming-paper-2025.pdf", "scammer-codebook-presentation-2025.pptx", "blackmail-connections.pdf", "blackmail-connections.png"):
+            self.assertContains(response, "research/" + name)
+            self.assertIsNotNone(finders.find("research/" + name))
