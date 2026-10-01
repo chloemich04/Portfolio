@@ -1,71 +1,10 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Contact - Portfolio</title>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Chloe' Robinson</h1>
-      <nav>
-        <a href="{% url 'index' %}">About</a> |
-        <a href="{% url 'projects' %}">Projects</a> |
-        <a href="{% url 'contact' %}">Contact</a>
-      </nav>
-    </header>
-    <main>
-      <section id="contact" class="section">
-        <h2>Get In Touch With Me!</h2>
-        <div class="contact-container">
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              Email:
-              <a href="mailto:chloemichelle04@gmail.com">chloemichelle04@gmail.com</a>
-            </div>
-            
-            <br>
-
-            <div class="contact-item">
-              <i class="fab fa-linkedin"></i>
-              Linked Profile:
-              <a href="https://www.linkedin.com/in/chloe-robinson-a90b3632a/" target="_blank">Let's Go!</a>
-            </div>
-
-            <br>
-            
-            <div class="contact-item">
-              <i class="fab fa-github"></i>
-              GitHub Profile:
-              <a href="https://github.com/chloemich04" target="_blank">Let's Go!</a>
-            </div>
-          </div>
-          
-          <div class="contact-form">
-            <form action="#" method="POST">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-              </div>
-              
-              <button type="submit" class="btn btn-submit">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
-</html>
+﻿{% extends 'main/base.html' %}
+{% block title %}Contact | Chloe' Robinson{% endblock %}
+{% block content %}
+<section class="page-heading"><p class="eyebrow">Let's connect</p><h1>A simple hello.<br><em>A new possibility.</em></h1><p class="intro">Have a project in mind, want to talk programming, or just want to introduce yourself? I'd love to hear from you.</p></section>
+<section class="contact-grid section" aria-label="Ways to connect">
+  <a class="contact-card featured-contact" href="mailto:chloemichelle04@gmail.com"><span class="eyebrow">01 / Email</span><h2>Start a conversation ↗</h2><p>chloemichelle04@gmail.com</p><span class="contact-note">Opens your email app</span></a>
+  <a class="contact-card" href="https://www.linkedin.com/in/chloe-robinson-a90b3632a/"><span class="eyebrow">02 / LinkedIn</span><h2>Connect professionally ↗</h2><p>Chloe' Robinson</p></a>
+  <a class="contact-card" href="https://github.com/chloemich04"><span class="eyebrow">03 / GitHub</span><h2>Talk code ↗</h2><p>@chloemich04</p></a>
+</section>
+{% endblock %}

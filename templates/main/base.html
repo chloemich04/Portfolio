@@ -1,0 +1,26 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chloe' Robinson's programming portfolio. Explore web projects, technical skills, and opportunities to connect.">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>{% block title %}Chloe' Robinson | Developer Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <script src="{% static 'js/motion.js' %}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="{% url 'index' %}" aria-label="Chloe Robinson home">cr<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}aria-current="page"{% endif %}>About</a>
+      <a href="{% url 'projects' %}" {% if request.resolver_match.url_name == 'projects' %}aria-current="page"{% endif %}>Projects</a>
+      <a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>Let's connect <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="wrap">{% block content %}{% endblock %}</main>
+  <footer class="site-footer wrap"><p>© {% now 'Y' %} Chloe' Robinson</p><p>Built with Python, Django &amp; curiosity.</p><a href="https://github.com/chloemich04/Portfolio">View this site's code ↗</a></footer>
+</body>
+</html>

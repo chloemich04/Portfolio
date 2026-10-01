@@ -1,12 +1,15 @@
-from django.shortcuts import render
+﻿from django.shortcuts import render
+
+from .projects import PROJECTS
 
 
 def index(request):
-    return render(request, "main/index.html", {})
+    featured = [project for project in PROJECTS if project["featured"]]
+    return render(request, "main/index.html", {"projects": featured})
 
 
 def projects(request):
-    return render(request, "main/projects.html", {})
+    return render(request, "main/projects.html", {"projects": PROJECTS})
 
 
 def contact(request):
